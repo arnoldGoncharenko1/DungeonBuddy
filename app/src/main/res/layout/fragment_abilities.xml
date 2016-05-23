@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.developer.arnold.dungeonbuddy.abilities"
+    android:weightSum="1">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Strength"
+        android:id="@+id/strText"
+        android:layout_gravity="center_vertical"
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/strMod"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:textSize="40dp"
+        android:layout_below="@+id/strText"
+        android:layout_alignLeft="@+id/strText"
+        android:layout_alignStart="@+id/strText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/strTotal"
+        android:layout_below="@+id/strMod"
+        android:layout_alignLeft="@+id/strMod"
+        android:layout_alignStart="@+id/strMod"
+        android:layout_marginLeft="7dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/button"
+        android:layout_toLeftOf="@+id/strTotal"
+        android:layout_below="@+id/strMod" />
+</RelativeLayout>
