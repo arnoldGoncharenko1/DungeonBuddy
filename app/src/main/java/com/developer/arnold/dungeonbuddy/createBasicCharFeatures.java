@@ -14,16 +14,20 @@ public class createBasicCharFeatures extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_basic_char_features);
 
-        Spinner raceSpinner = (Spinner) findViewById(R.id.raceSpinner);
+        Spinner raceSpinner = (Spinner) findViewById(R.id.raceChoose);
 
         raceSpinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener()
                 {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
                     {
-                        Spinner raceSpinner = (Spinner) findViewById(R.id.raceSpinner);
+                        Spinner raceSpinner = (Spinner) findViewById(R.id.raceChoose);
                         TextView raceDesc = (TextView) findViewById(R.id.lblRaceDesc);
                         String choosenRace = raceSpinner.getSelectedItem().toString();
+
+                        if (position == 0) {
+                            raceDesc.setText("Race description");
+                        }
 
                         if (choosenRace.equals("Dwarf")){
                             raceDesc.setText("Ability Score increase: +2 Constitution\n" +
