@@ -13,13 +13,8 @@ public class playerCharacter implements Serializable {
     String characterClass;
     String characterSubClass;
     String characterGender;
-    String characterHeight;
-    int characterWeight;
+    double characterHeight;
+    double characterWeight;
     int characterAge;
-    String characterEyeColor;
-    String characterHairColor;
-    String characterSkinColor;
     String characterAlignment;
-    String characterDeity;
-
 }

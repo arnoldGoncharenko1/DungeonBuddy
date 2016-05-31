@@ -1,135 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ScrollView01"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:scrollbars="vertical">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:orientation="vertical"
-        android:layout_height="fill_parent">
+    android:layout_height="wrap_content">
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_height="fill_parent">
 
-        <!--Put form controls here-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Character Info"
+                android:id="@+id/lblIntro"
+                android:layout_marginLeft="110dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Character Info"
-            android:id="@+id/textView"
-            android:layout_marginLeft="110dp" />
+            <EditText
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtCharName"
+                android:hint="Your character&apos;s name" />
 
-        <EditText
-            android:layout_width="365dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:focusableInTouchMode="false"
-            android:hint="Your character&apos;s name" />
+            <Spinner
+                android:layout_width="365dp"
+                android:layout_height="30dp"
+                android:id="@+id/charLevel"
+                android:prompt="@string/title_activity_character_info"
+                android:entries="@array/levelChoices"
+                android:spinnerMode="dialog"
+                android:textAlignment="center" />
 
-        <Spinner
-            android:layout_width="365dp"
-            android:layout_height="30dp"
-            android:id="@+id/charLevel"
-            android:prompt="@string/title_activity_character_info"
-            android:entries="@array/levelChoices"
-            android:spinnerMode="dialog"
-            android:textAlignment="center" />
+            <EditText
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/edtStartExp"
+                android:hint="Starting exprience level (Optional)"
+                android:enabled="true" />
 
-        <EditText
-            android:layout_width="365dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText2"
-            android:focusableInTouchMode="false"
-            android:hint="Starting exprience level (Optional)"
-            android:layout_gravity="center_horizontal" />
+            <Spinner
+                android:layout_width="365dp"
+                android:layout_height="30dp"
+                android:id="@+id/charRace"
+                android:entries="@array/races"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal" />
 
-        <Spinner
-            android:layout_width="365dp"
-            android:layout_height="30dp"
-            android:id="@+id/raceChoose"
-            android:entries="@array/races"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
-            android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Race description"
+                android:id="@+id/lblRaceDesc"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Race description"
-            android:id="@+id/lblRaceDesc"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:text="_________________________________"
+                android:id="@+id/lblSeperator"
+                android:layout_gravity="center_horizontal"
+                android:textSize="25dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="______________________________________________________"
-            android:id="@+id/textView3"
-            android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Characteristics"
+                android:id="@+id/lblCharacteristics"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Characteristics"
-            android:id="@+id/textView2"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/edtCharGender"
+                android:hint="Character gender"
+                android:layout_gravity="center_horizontal" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText3"
-            android:focusableInTouchMode="false"
-            android:hint="Character gender"
-            android:layout_gravity="center_horizontal" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/edtCharHeight"
+                android:hint="Character height"
+                android:layout_gravity="center_horizontal" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText4"
-            android:focusableInTouchMode="false"
-            android:hint="Character height"
-            android:layout_gravity="center_horizontal" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/edtCharWeight"
+                android:hint="Character weight (lbs)"
+                android:layout_gravity="center_horizontal" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText5"
-            android:focusableInTouchMode="false"
-            android:hint="Character weight (lbs)"
-            android:layout_gravity="center_horizontal" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/edtCharAge"
+                android:hint="Character age"
+                android:layout_gravity="center_horizontal" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText6"
-            android:focusableInTouchMode="false"
-            android:hint="Character age"
-            android:layout_gravity="center_horizontal" />
+            <Spinner
+                android:layout_width="365dp"
+                android:layout_height="30dp"
+                android:id="@+id/charAlignment"
+                android:entries="@array/alignments"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal" />
 
-        <Spinner
-            android:layout_width="365dp"
-            android:layout_height="30dp"
-            android:id="@+id/spinner"
-            android:entries="@array/races"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:id="@+id/btnToClass"
+                android:layout_gravity="center_horizontal"
+                android:onClick="charChooseClass" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
