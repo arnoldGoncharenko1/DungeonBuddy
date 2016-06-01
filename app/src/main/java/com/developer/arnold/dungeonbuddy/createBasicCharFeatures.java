@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -40,47 +41,66 @@ public class createBasicCharFeatures extends Activity {
         //Set up of listeners that will change the text back to white if user doesn't type in the right input and the error message turns the
         //text red.
         EditText edtCharacterAge = (EditText) findViewById(R.id.edtCharAge);
-        edtCharacterAge.setOnClickListener(
-                new View.OnClickListener() {
+        edtCharacterAge.setOnTouchListener(
+                new View.OnTouchListener() {
                     /**
                      * function that is called when the edit text is clicked by the user
                      *
                      * @param view  variable that stores the view of the current activity.
                      */
                     @Override
-                    public void onClick(View view) {
+                    public boolean onTouch(View view, MotionEvent event) {
                         EditText edtCharacterAge = (EditText) findViewById(R.id.edtCharAge);
                         edtCharacterAge.setTextColor(Color.WHITE);
+                        return false;
                     }
                 }
         );
         EditText edtCharacterWeight = (EditText) findViewById(R.id.edtCharWeight);
-        edtCharacterWeight.setOnClickListener(
-                new View.OnClickListener() {
+        edtCharacterWeight.setOnTouchListener(
+                new View.OnTouchListener() {
                     /**
                      * function that is called when the edit text is clicked by the user
                      *
                      * @param view  variable that stores the view of the current activity.
                      */
                     @Override
-                    public void onClick(View view) {
+                    public boolean onTouch(View view, MotionEvent event) {
                         EditText edtCharacterWeight = (EditText) findViewById(R.id.edtCharWeight);
                         edtCharacterWeight.setTextColor(Color.WHITE);
+                        return false; // return is important...
                     }
                 }
         );
         EditText edtCharacterHeight = (EditText) findViewById(R.id.edtCharHeight);
-        edtCharacterHeight.setOnClickListener(
-                new View.OnClickListener() {
+        edtCharacterHeight.setOnTouchListener(
+                new View.OnTouchListener() {
                     /**
                      * function that is called when the edit text is clicked by the user
                      *
                      * @param view  variable that stores the view of the current activity.
                      */
                     @Override
-                    public void onClick(View view) {
+                    public boolean onTouch(View view, MotionEvent event) {
                         EditText edtCharacterHeight = (EditText) findViewById(R.id.edtCharHeight);
                         edtCharacterHeight.setTextColor(Color.WHITE);
+                        return false;
+                    }
+                }
+        );
+        EditText edtCharacterExp = (EditText) findViewById(R.id.edtStartExp);
+        edtCharacterExp.setOnTouchListener(
+                new View.OnTouchListener() {
+                    /**
+                     * function that is called when the edit text is clicked by the user
+                     *
+                     * @param view  variable that stores the view of the current activity.
+                     */
+                    @Override
+                    public boolean onTouch(View view, MotionEvent event) {
+                        EditText edtCharacterExp = (EditText) findViewById(R.id.edtStartExp);
+                        edtCharacterExp.setTextColor(Color.WHITE);
+                        return false;
                     }
                 }
         );
@@ -211,7 +231,6 @@ public class createBasicCharFeatures extends Activity {
         //can be checked if thier empty.
         EditText edtCharName = (EditText) findViewById(R.id.edtCharName);
         EditText edtCharGender = (EditText) findViewById(R.id.edtCharGender);
-        EditText edtCharExp = (EditText) findViewById(R.id.edtStartExp);
         EditText edtCharHeight = (EditText) findViewById(R.id.edtCharHeight);
         EditText edtCharWeight = (EditText) findViewById(R.id.edtCharWeight);
         EditText edtCharAge = (EditText) findViewById(R.id.edtCharAge);
@@ -273,7 +292,6 @@ public class createBasicCharFeatures extends Activity {
             userCharacter.characterLevel = Integer.parseInt(levelSpinner.getSelectedItem().toString().trim());
             userCharacter.characterRace = raceSpinner.getSelectedItem().toString().trim();
             userCharacter.characterAlignment = alignmentSpinner.getSelectedItem().toString().trim();
-            userCharacter.characterExp = Integer.parseInt(edtCharExp.toString().trim());
             return true;
         }
     }
@@ -289,6 +307,7 @@ public class createBasicCharFeatures extends Activity {
         double charHeight=0;
         int charWeight=0;
         int charAge=0;
+        int charExp=0;
 
         //block of code that declares an "all clear" boolean value and a error message to be used
         //with the error dialog box
@@ -299,38 +318,50 @@ public class createBasicCharFeatures extends Activity {
         EditText edtCharHeight = (EditText) findViewById(R.id.edtCharHeight);
         EditText edtCharWeight = (EditText) findViewById(R.id.edtCharWeight);
         EditText edtCharAge = (EditText) findViewById(R.id.edtCharAge);
+        EditText edtCharExp = (EditText) findViewById(R.id.edtStartExp);
 
         //group of try-catch statements to see if the height, age, and weight values are the correct format.
         try {
-            //parses the string, if a double is acquired then it's all clear, if not, an execption is thrown.
+            //parses the string, if a double is acquired then it's all clear, if not, an exception is thrown.
             charHeight = Double.parseDouble(edtCharHeight.getText().toString().trim());
         } catch (NumberFormatException nfe) {
             //block of code that adds a error message, changes the text and color to warn the user that something is wrong.
-            errorMessage += "Please type in a number between 1-9 (ex. 3.4) for height\n";
+            errorMessage += "Please type in a number between for height (ex. 3.4)\n";
             edtCharHeight.setText(edtCharHeight.getText().toString().trim() + " (Height)");
             edtCharHeight.setTextColor(Color.RED);
             formatPassed=false;
         }
 
         try {
-            //parses the string, if a double is acquired then it's all clear, if not, an execption is thrown.
+            //parses the string, if a integer is acquired then it's all clear, if not, an exception is thrown.
             charWeight = Integer.parseInt(edtCharWeight.getText().toString().trim());
         } catch (NumberFormatException nfe) {
             //block of code that adds a error message, changes the text and color to warn the user that something is wrong.
-            errorMessage += "Please type in a number between 1-300 for weight\n";
+            errorMessage += "Please type in a number between for weight\n";
             edtCharWeight.setText(edtCharWeight.getText().toString().trim() + " (Weight)");
             edtCharWeight.setTextColor(Color.RED);
             formatPassed=false;
         }
 
         try {
-            //parses the string, if a double is acquired then it's all clear, if not, an execption is thrown.
+            //parses the string, if a integer is acquired then it's all clear, if not, an exception is thrown.
             charAge = Integer.parseInt(edtCharAge.getText().toString().trim());
         } catch (NumberFormatException nfe) {
             //block of code that adds a error message, changes the text and color to warn the user that something is wrong.
-            errorMessage += "Please type in a number between 1-1000 for age\n";
+            errorMessage += "Please type in a number between for age\n";
             edtCharAge.setText(edtCharAge.getText().toString().trim() + " (Age)");
             edtCharAge.setTextColor(Color.RED);
+            formatPassed=false;
+        }
+
+        try {
+            //parses the string, if a double is acquired then it's all clear, if not, an exception is thrown.
+            charExp = Integer.parseInt(edtCharExp.getText().toString().trim());
+        } catch (NumberFormatException nfe) {
+            //block of code that adds a error message, changes the text and color to warn the user that something is wrong.
+            errorMessage += "Please type in a number for exp\n";
+            edtCharExp.setText(edtCharExp.getText().toString().trim() + " (Exp)");
+            edtCharExp.setTextColor(Color.RED);
             formatPassed=false;
         }
 
@@ -344,6 +375,7 @@ public class createBasicCharFeatures extends Activity {
             userCharacter.characterHeight = charHeight;
             userCharacter.characterWeight = charWeight;
             userCharacter.characterAge = charAge;
+            userCharacter.characterExp = charExp;
             return true;
         }
     }
