@@ -17,7 +17,8 @@
         </activity>
         <activity
             android:name=".createBasicCharFeatures"
-            android:label="@string/title_activity_create_basic_char_features"></activity>
+            android:label="@string/title_activity_create_basic_char_features" />
+        <activity android:name=".characterBackground"></activity>
     </application>
 
 </manifest>
