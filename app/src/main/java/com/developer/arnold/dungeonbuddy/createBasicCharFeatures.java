@@ -160,11 +160,13 @@ public class createBasicCharFeatures extends Activity {
      *
      * @param view      variable that stores the view of the current activity.
      */
-    public void charChooseClass (View view) {
+    public void charChooseBackground (View view) {
         //checks if the input is not empty and if it's the right format.
         if (checkInput()) {
-            //creates a error dialog (Temporary) to warn the user that it was a success
-            createErrorDialog("Succesfully passed all validation!", "Success!");
+            //goes to the next part of the character creation process
+            Intent intent = new Intent(this, characterBackground.class);
+            intent.putExtra("userCharacterObject", userCharacter);
+            startActivity(intent);
         }
     }
 

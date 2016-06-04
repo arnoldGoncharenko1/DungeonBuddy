@@ -32,7 +32,7 @@
                 android:layout_width="365dp"
                 android:layout_height="30dp"
                 android:id="@+id/charLevel"
-                android:prompt="@string/title_activity_character_info"
+                android:prompt="@string/levelPrompt"
                 android:entries="@array/levelChoices"
                 android:spinnerMode="dialog"
                 android:textAlignment="center" />
@@ -128,7 +128,7 @@
                 android:text="Next"
                 android:id="@+id/btnToClass"
                 android:layout_gravity="center_horizontal"
-                android:onClick="charChooseClass" />
+                android:onClick="charChooseBackground" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

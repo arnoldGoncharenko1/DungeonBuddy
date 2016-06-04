@@ -44,4 +44,35 @@
         <item>Please choose a alignment</item>
         <item>Lawful Good</item>
     </string-array>
+    <string-array name="backgrounds">
+        <item>Please choose a background</item>
+        <item>Soldier</item>
+    </string-array>
+    <string-array name="emptyBackgroundDetails">
+        <item>Please choose a initial background</item>
+    </string-array>
+    <string-array name="backgroundSpecialSoldier">
+        <item>Officer</item>
+        <item>Scout</item>
+        <item>Infantry</item>
+        <item>Cavalry</item>
+        <item>Healer</item>
+        <item>Quartermaster</item>
+        <item>Standard bearer</item>
+        <item>support staff</item>
+    </string-array>
+    <string-array name="backgroundPersonalitySoldier">
+        <item>I\'m always polite and respectful</item>
+        <item>I\'m haunted by memories of war. \nI can\'t get the images of violence out of my head</item>
+    </string-array>
+    <string-array name="backgroundIdealSoldier">
+        <item>Greater good. Our lot is to lay down our lives in defense of others (Good)</item>
+    </string-array>
+    <string-array name="backgroundBondSoldier">
+        <item>I would still lay down my life for the people I served with</item>
+    </string-array>
+    <string-array name="backgroundFlawSoldier">
+        <item>The monstrous enemy we faced in battle still leaves me quivering with fear</item>
+    </string-array>
+    <string name="levelPrompt">Please choose a level!</string>
 </resources>
