@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class characterRaceList extends Activity {
 
         ListView listview = (ListView) findViewById(R.id.lstCharacterRace);
         listview.setAdapter(new raceListAdapter(this, new String[] { "Dwarf", "Human", "Tiefling" }));
+        listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
     }
 
 }
@@ -31,6 +33,8 @@ class raceListAdapter extends BaseAdapter {
     Context context;
     String[] data;
     private static LayoutInflater inflater = null;
+    private RadioButton mSelectedRB;
+    private int mSelectedPosition = -1;
 
     public raceListAdapter(Context context, String[] data) {
         // TODO Auto-generated constructor stub
@@ -62,10 +66,33 @@ class raceListAdapter extends BaseAdapter {
         // TODO Auto-generated method stub
         View vi;
         vi = convertView;
+
         if (vi == null)
             vi = inflater.inflate(R.layout.list_view_item, null);
 
+        RadioButton raceName = (RadioButton) vi.findViewById(R.id.radioRace);
         Button btnMoreInfo = (Button) vi.findViewById(R.id.btnMoreRaceInfo);
+
+        raceName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(position != mSelectedPosition && mSelectedRB != null){
+                    mSelectedRB.setChecked(false);
+                }
+
+                mSelectedPosition = position;
+                mSelectedRB = (RadioButton)v;
+            }
+        });
+
+        if(mSelectedPosition != position){
+            raceName.setChecked(false);
+        }else{
+            raceName.setChecked(true);
+            if(mSelectedRB != null && raceName != mSelectedRB){
+                mSelectedRB = raceName;
+            }
+        }
 
         btnMoreInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +103,6 @@ class raceListAdapter extends BaseAdapter {
             }
         });
 
-        RadioButton raceName = (RadioButton) vi.findViewById(R.id.radioRace);
         raceName.setText(data[position]);
 
         return vi;
