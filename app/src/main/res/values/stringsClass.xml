@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="classOptions">
+        <item>Please choose a class</item>
+        <item>Barbarian</item>
+    </string-array>
+</resources>

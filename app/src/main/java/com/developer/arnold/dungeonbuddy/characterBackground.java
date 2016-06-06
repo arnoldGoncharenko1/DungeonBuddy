@@ -3,6 +3,7 @@ package com.developer.arnold.dungeonbuddy;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -143,7 +144,10 @@ public class characterBackground extends Activity {
      */
     public void chooseClass(View view) {
         if (checkIfEmpty()) {
-            createErrorDialog("Success!", "Successfully validated");
+            //goes to the next part of the character creation process
+            Intent intent = new Intent(this, characterClass.class);
+            intent.putExtra("userCharacterObject", userCharacter);
+            startActivity(intent);
         }
         return;
     }
@@ -159,7 +163,7 @@ public class characterBackground extends Activity {
         boolean submissionPassed=true;
 
         //checks if any of the spinner's have the correct position (Anything other then the first position)
-        if (spinnerSpeciality.getSelectedItemPosition() == 0) {
+        if (spinnerBackgroundSaving.getSelectedItemPosition() == 0) {
             errorMessage += "Please choose a background!\n";
             submissionPassed=false;
         }

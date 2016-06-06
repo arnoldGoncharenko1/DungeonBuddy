@@ -75,4 +75,5 @@
         <item>The monstrous enemy we faced in battle still leaves me quivering with fear</item>
     </string-array>
     <string name="levelPrompt">Please choose a level!</string>
+    <string name="title_activity_character_race_list">characterRaceList</string>
 </resources>
