@@ -22,7 +22,10 @@
         <activity android:name=".characterClass" />
         <activity
             android:name=".characterRaceList"
-            android:label="@string/title_activity_character_race_list"></activity>
+            android:label="@string/title_activity_character_race_list" />
+        <activity
+            android:name=".raceInfo"
+            android:label="@string/title_activity_race_info"></activity>
     </application>
 
 </manifest>

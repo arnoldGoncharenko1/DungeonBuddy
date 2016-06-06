@@ -76,4 +76,5 @@
     </string-array>
     <string name="levelPrompt">Please choose a level!</string>
     <string name="title_activity_character_race_list">characterRaceList</string>
+    <string name="title_activity_race_info">raceInfo</string>
 </resources>

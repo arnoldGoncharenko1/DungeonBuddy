@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void createNewCharacter(View view) {
         //creates a intent and starts an activity using that intent.
-        Intent intent = new Intent(this, createBasicCharFeatures.class);
+        Intent intent = new Intent(this, characterRaceList.class);
         startActivity(intent);
     }
 }
