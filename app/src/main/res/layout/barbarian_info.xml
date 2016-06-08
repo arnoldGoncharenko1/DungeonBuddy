@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="dwarf"
-        android:id="@+id/textView3"
+        android:text="Barbarian"
+        android:id="@+id/textView4"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

@@ -1,47 +1,35 @@
 package com.developer.arnold.dungeonbuddy;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.os.Bundle;
-import android.app.Activity;
-import android.provider.MediaStore;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import org.w3c.dom.Comment;
-
-public class characterRaceList extends Activity {
+public class characterClassList extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_character_race_list);
+        setContentView(R.layout.activity_character_class_list);
 
-        ListView listview = (ListView) findViewById(R.id.lstCharacterRace);
-        listview.setAdapter(new raceListAdapter(this, new String[] { "Dwarf", "Human" }));
+        ListView listview = (ListView) findViewById(R.id.lstCharacterClass);
+        listview.setAdapter(new classListAdapter(this, new String[] { "Barbarian", "Bard" }));
     }
 }
 
-class raceListAdapter extends BaseAdapter {
+class classListAdapter extends BaseAdapter {
 
     Context context;
     String[] data;
@@ -50,7 +38,7 @@ class raceListAdapter extends BaseAdapter {
     private int mSelectedPosition = -1;
     playerCharacter playerChar = new playerCharacter();
 
-    public raceListAdapter(Context context, String[] data) {
+    public classListAdapter(Context context, String[] data) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.data = data;
@@ -84,35 +72,36 @@ class raceListAdapter extends BaseAdapter {
         if (vi == null)
             vi = inflater.inflate(R.layout.list_view_item, null);
 
-        Button btnContinueClass = (Button) parent.getRootView().findViewById(R.id.btnContinue);
-        final RadioButton raceName = (RadioButton) vi.findViewById(R.id.radioRace);
+        Button btnContinueClass = (Button) parent.getRootView().findViewById(R.id.btnBackgroundContinue);
+        RadioButton className = (RadioButton) vi.findViewById(R.id.radioRace);
         Button btnMoreInfo = (Button) vi.findViewById(R.id.btnMoreRaceInfo);
 
-        raceName.setOnClickListener(new View.OnClickListener() {
+        className.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(position != mSelectedPosition && mSelectedRB != null){
                     mSelectedRB.setChecked(false);
                 }
+
                 mSelectedPosition = position;
                 mSelectedRB = (RadioButton)v;
             }
         });
 
         if(mSelectedPosition != position){
-            raceName.setChecked(false);
+            className.setChecked(false);
         }else{
-            raceName.setChecked(true);
-            if(mSelectedRB != null && raceName != mSelectedRB){
-                mSelectedRB = raceName;
+            className.setChecked(true);
+            if(mSelectedRB != null && className != mSelectedRB){
+                mSelectedRB = className;
             }
         }
 
         btnMoreInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, raceInfo.class);
-                intent.putExtra("raceExtraInfoNum", position);
+                Intent intent = new Intent(context, classInfo.class);
+                intent.putExtra("classExtraInfoNum", position);
                 context.startActivity(intent);
             }
         });
@@ -121,22 +110,22 @@ class raceListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 if (mSelectedPosition != -1) {
-                    playerChar.characterRace = mSelectedRB.getText().toString();
-                    Intent intent = new Intent(context, characterClassList.class);
+                    playerChar = (playerCharacter)((Activity) context).getIntent().getSerializableExtra("playerCharIntent");
+                    playerChar.characterClass = mSelectedRB.getText().toString();
+                    Intent intent = new Intent(context, characterBackgroundList.class);
                     intent.putExtra("playerCharIntent", playerChar);
                     context.startActivity(intent);
                 }
                 else {
-                    createErrorDialog("Error found","Please choose a race!");
+                    createErrorDialog("Error found","Please choose a class!");
                 }
             }
         });
 
-        raceName.setText(data[position]);
+        className.setText(data[position]);
 
         return vi;
     }
-
     /**
      * function that is called when a error dialog has to be created.
      *
