@@ -31,6 +31,7 @@ public class characterStats extends Activity {
 
         int currentStrScore = Integer.parseInt(strScore.getText().toString());
         int currentPoints = Integer.parseInt(pointsLeft.getText().toString());
+        
         boolean strPlusPressed = strPlus.isPressed();
         boolean strMinusPressed = strMinus.isPressed();
 
