@@ -1,6 +1,7 @@
 package com.developer.arnold.dungeonbuddy;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,22 +18,13 @@ public class playerCharacter implements Serializable {
     String characterRace;
     int characterExp;
     String characterClass;
-    String characterSubClass;
-    String characterGender;
-    double characterHeight;
-    double characterWeight;
-    int characterAge;
-    String characterAlignment;
-
-    //group of variables that store the background infromation about the player's character.
+    int[] characterStats;
+    List<String> characterProfs;
+    int characterHealth;
     String characterBackground;
-    String characterSpecialty;
-    String[] characterTraits;
-    String characterIdeal;
-    String characterBond;
-    String characterFlaw;
 
     playerCharacter () {
-        characterTraits = new String[2];
+        characterStats = new int[6];
+        characterProfs = new ArrayList<String>();
     }
 }

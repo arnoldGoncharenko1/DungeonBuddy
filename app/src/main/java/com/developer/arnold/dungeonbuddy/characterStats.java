@@ -1,7 +1,11 @@
 package com.developer.arnold.dungeonbuddy;
-
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,12 +14,29 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class characterStats extends Activity {
+
+    int[] playerStats = new int[6];
+    playerCharacter playerChar = new playerCharacter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_stats);
+        for (int i=0; i < playerStats.length; i++) {
+            playerStats[i] = 8;
+        }
+    }
+
+    public void continueToProficiencies(View view) {
+        playerChar = (playerCharacter)getIntent().getSerializableExtra("playerCharIntent");
+        playerChar.characterStats = playerStats;
+        Intent intent = new Intent(this, characterProfChoose.class);
+        intent.putExtra("playerCharIntent", playerChar);
+        startActivity(intent);
     }
 
     public void scoreStrButton(View view) {
@@ -84,6 +105,7 @@ public class characterStats extends Activity {
                 }
             }
         }
+        playerStats[0] = currentStrScore;
     }
 
     public void scoreDexButton (View view) {
@@ -152,6 +174,7 @@ public class characterStats extends Activity {
                 }
             }
         }
+        playerStats[1] = currentDexScore;
     }
 
     public void scoreConButton (View view) {
@@ -220,6 +243,7 @@ public class characterStats extends Activity {
                 }
             }
         }
+        playerStats[2] = currentConScore;
     }
 
     public void scoreIntButton (View view) {
@@ -288,6 +312,7 @@ public class characterStats extends Activity {
                 }
             }
         }
+        playerStats[3] = currentIntScore;
     }
 
     public void scoreWisButton (View view) {
@@ -356,6 +381,7 @@ public class characterStats extends Activity {
                 }
             }
         }
+        playerStats[4] = currentWisScore;
     }
 
     public void scoreChaButton (View view) {
@@ -424,5 +450,6 @@ public class characterStats extends Activity {
                 }
             }
         }
+        playerStats[5] = currentChaScore;
     }
 }

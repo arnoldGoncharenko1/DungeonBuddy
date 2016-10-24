@@ -289,11 +289,6 @@ public class createBasicCharFeatures extends Activity {
             return false;
         }
         else {
-            userCharacter.characterName = edtCharName.toString().trim();
-            userCharacter.characterGender = edtCharGender.toString().trim();
-            userCharacter.characterLevel = Integer.parseInt(levelSpinner.getSelectedItem().toString().trim());
-            userCharacter.characterRace = raceSpinner.getSelectedItem().toString().trim();
-            userCharacter.characterAlignment = alignmentSpinner.getSelectedItem().toString().trim();
             return true;
         }
     }
@@ -374,9 +369,6 @@ public class createBasicCharFeatures extends Activity {
             return false;
         }
         else {
-            userCharacter.characterHeight = charHeight;
-            userCharacter.characterWeight = charWeight;
-            userCharacter.characterAge = charAge;
             userCharacter.characterExp = charExp;
             return true;
         }

@@ -2,9 +2,12 @@ package com.developer.arnold.dungeonbuddy;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -108,16 +111,16 @@ class characterListAdapter extends BaseAdapter {
         btnContinueStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mSelectedPosition != -1) {
-                    playerChar = (playerCharacter)((Activity) context).getIntent().getSerializableExtra("playerCharIntent");
-                    playerChar.characterClass = mSelectedRB.getText().toString();
-                    Intent intent = new Intent(context, characterStats.class);
-                    intent.putExtra("playerCharIntent", playerChar);
-                    context.startActivity(intent);
-                }
-                else {
-                    createErrorDialog("Error found","Please choose a class!");
-                }
+            if (mSelectedPosition != -1) {
+                playerChar = (playerCharacter)((Activity) context).getIntent().getSerializableExtra("playerCharIntent");
+                playerChar.characterBackground = mSelectedRB.getText().toString();
+                Intent intent = new Intent(context, characterStats.class);
+                intent.putExtra("playerCharIntent", playerChar);
+                context.startActivity(intent);
+            }
+            else {
+                createErrorDialog("Error found","Please choose a class!");
+            }
             }
         });
 
