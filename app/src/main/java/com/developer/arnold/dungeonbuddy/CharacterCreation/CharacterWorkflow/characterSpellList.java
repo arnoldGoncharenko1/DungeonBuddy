@@ -1,11 +1,16 @@
 package com.developer.arnold.dungeonbuddy.CharacterCreation.CharacterWorkflow;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -124,9 +129,53 @@ public class characterSpellList extends Activity {
                 }
             });
 
-            //return the view to be displayed
+            Button btnContinueFinalize = (Button) parent.getRootView().findViewById(R.id.btnContinue);
+            btnContinueFinalize.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    for(int i=0; i<spellsCheck.length; i++){
+                        if(spellsCheck[i] == true){
+                            spellsSelected.add(spellName.get(i));
+                        }
+                    }
+                    if(spellsSelected.size() < 1){
+                        createErrorDialog("Error found", "Please choose a spell");
+                    }
+                }
+            });
+
             return convertView;
         }
 
+        public void createErrorDialog(String title, String message) {
+
+            //block of code that creates a error dialog using the message and title provided
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+
+            TextView dialogErrorMessage = new TextView(context);
+            dialogErrorMessage.setText(message);
+            dialogErrorMessage.setGravity(Gravity.CENTER_HORIZONTAL);
+
+            dialogBuilder.setView(dialogErrorMessage);
+            dialogBuilder.setTitle(title);
+
+            //creates a button so the user can close the dialog
+            dialogBuilder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                /**
+                 * function that is called when the button in the dialog is pressed
+                 *
+                 * @param dialog    object containing the dialog that is currently in use.
+                 * @param id        int value that contains the dialogs ID.
+                 */
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog dialog = dialogBuilder.create();
+            dialog.show();
+        }
     }
+
 
