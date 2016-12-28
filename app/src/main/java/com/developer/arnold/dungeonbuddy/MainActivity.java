@@ -1,35 +1,34 @@
 package com.developer.arnold.dungeonbuddy;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import java.io.File;
+import com.developer.arnold.dungeonbuddy.CharacterCreation.CharacterWorkflow.characterRaceList;
+import com.developer.arnold.dungeonbuddy.CharacterView.characterInfoMainActivity;
+import com.developer.arnold.dungeonbuddy.DataModels.playerCharacter;
+import com.developer.arnold.dungeonbuddy.HelperClasses.MySQLiteHelper;
+
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    ArrayList<playerCharacter> playersCharacters;
+    List<Integer> listOfCharacterIDs = new ArrayList<>();
 
     /**
      * function that is called when the activity is loaded.
@@ -44,16 +43,30 @@ public class MainActivity extends AppCompatActivity {
 
         MySQLiteHelper db = new MySQLiteHelper(this);
 
-        db.destroyDB(this);
-
-        ArrayList<playerCharacter> playersCharacters = new ArrayList<playerCharacter>();
+        //db.destroyDB(this);
 
         playersCharacters = db.getAllContacts();
 
-        ListView listview = (ListView) findViewById(R.id.charListView);
-        listview.setAdapter(new charListAdapter(this, playersCharacters));
-    }
+        for (int i= 0; i < playersCharacters.size(); i++) {
+            listOfCharacterIDs.add(playersCharacters.get(i).characterID);
+        }
 
+        final charListAdapter adapter = new charListAdapter(this, playersCharacters);
+
+        ListView listview = (ListView) findViewById(R.id.charListView);
+        listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), characterInfoMainActivity.class);
+                int retreivedCharacterId = listOfCharacterIDs.get(position);
+                intent.putExtra("ID", retreivedCharacterId);
+                startActivity(intent);
+            }
+        });
+    }
 
     /**
      * function that is called when a new character wants to be created.

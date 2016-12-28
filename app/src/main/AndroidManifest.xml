@@ -7,7 +7,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name="com.orm.SugarApp">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,21 +18,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".createBasicCharFeatures"
-            android:label="@string/title_activity_create_basic_char_features" />
-        <activity android:name=".characterBackground" />
-        <activity android:name=".characterClass" />
-        <activity
-            android:name=".characterRaceList"
+            android:name=".CharacterCreation.CharacterWorkflow.characterRaceList"
             android:label="@string/title_activity_character_race_list" />
-        <activity android:name=".raceInfo" />
-        <activity android:name=".characterClassList" />
-        <activity android:name=".classInfo" />
-        <activity android:name=".characterBackgroundList" />
-        <activity android:name=".backgroundInfo" />
-        <activity android:name=".characterStats" />
-        <activity android:name=".characterProfChoose" />
-        <activity android:name=".characterBasicInfoChoose"></activity>
+        <activity android:name=".CharacterCreation.InformationClasses.raceInfo" />
+        <activity android:name=".CharacterCreation.CharacterWorkflow.characterClassList" />
+        <activity android:name=".CharacterCreation.InformationClasses.classInfo" />
+        <activity android:name=".CharacterCreation.CharacterWorkflow.characterBackgroundList" />
+        <activity android:name=".CharacterCreation.InformationClasses.backgroundInfo" />
+        <activity android:name=".CharacterCreation.CharacterWorkflow.characterStats" />
+        <activity android:name=".CharacterCreation.CharacterWorkflow.characterProfChoose" />
+        <activity android:name=".CharacterCreation.CharacterWorkflow.characterBasicInfoChoose" />
+        <activity android:name=".CharacterCreation.CharacterWorkflow.characterSpellList" />
+        <activity android:name=".CharacterView.characterInfoMainActivity"></activity>
+        <meta-data android:name="DATABASE" android:value="characterInfo.db" />
+        <meta-data android:name="VERSION" android:value="1" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.developer.arnold.dungeonbuddy" />
     </application>
 
 </manifest>

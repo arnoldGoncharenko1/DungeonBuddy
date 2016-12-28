@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.developer.arnold.dungeonbuddy.characterRaceList"
+    tools:context="com.developer.arnold.dungeonbuddy.CharacterCreation.CharacterWorkflow.characterRaceList"
     android:weightSum="1">
 
     <TextView

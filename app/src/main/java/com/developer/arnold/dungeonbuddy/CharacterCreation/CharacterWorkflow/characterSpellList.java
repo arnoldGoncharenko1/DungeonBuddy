@@ -1,0 +1,132 @@
+package com.developer.arnold.dungeonbuddy.CharacterCreation.CharacterWorkflow;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.view.ViewGroup;
+
+import com.developer.arnold.dungeonbuddy.DataModels.playerCharacter;
+import com.developer.arnold.dungeonbuddy.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Arnold on 12/28/2016.
+ */
+
+public class characterSpellList extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_character_spell_list);
+
+        ListView listview = (ListView) findViewById(R.id.lstCharacterSpell);
+
+        List<String> spellsAvailableList = new ArrayList<String>();
+        List<String> spellsDescription = new ArrayList<String>();
+
+        spellsAvailableList.add("Acid Splash");
+        spellsDescription.add("Hurl a bubble of acid");
+
+        spellsAvailableList.add("Aid");
+        spellsDescription.add("Bolsters your allies with toughness and resolve");
+
+        spellsAvailableList.add("Alarm");
+        spellsDescription.add("Alerts you whenever a tiny or larger creature touches or enters the warded area");
+
+        listview.setAdapter(new spellListAdapter(this, spellsAvailableList, spellsDescription));
+
+    }
+}
+
+      class SpellsViewHolder {
+          public CheckBox cbSelected;
+          public TextView name;
+          public TextView description;
+          public int position;
+    }
+
+    class spellListAdapter extends BaseAdapter {
+
+        Context context;
+        List<String> spellName = new ArrayList<String>();
+        private static LayoutInflater inflater = null;
+        playerCharacter playerChar = new playerCharacter();
+        List<String> spellsDescription;
+        List<String> spellsSelected = new ArrayList<String>();
+        private boolean[] spellsCheck;
+
+
+        public spellListAdapter(Context context, List<String> spellName, List<String> description) {
+            // TODO Auto-generated constructor stub
+            this.context = context;
+            this.spellName = spellName;
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            spellsDescription = description;
+            spellsCheck = new boolean[spellName.size()];
+        }
+
+        @Override
+        public int getCount() {
+            // TODO Auto-generated method stub
+            return spellName.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            // TODO Auto-generated method stub
+            return spellName.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            // TODO Auto-generated method stub
+            return position;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            SpellsViewHolder holder = null;
+
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.listview_spell_row, null);
+                holder = new SpellsViewHolder();
+                holder.cbSelected = (CheckBox) convertView.findViewById(R.id.cbSpell);
+                holder.name = (TextView) convertView.findViewById(R.id.spellName);
+                holder.description = (TextView) convertView.findViewById(R.id.spellDesc);
+                holder.position = position;
+
+                convertView.setTag(holder);
+            } else {
+                holder = (SpellsViewHolder) convertView.getTag();
+            }
+           // holder.cbSelected.setOnCheckedChangeListener(null);
+            holder.cbSelected.setChecked(spellsCheck[position]);
+            //holder.cbSelected.setOnCheckedChangeListener(mStarCheckedChanceChangeListener);
+
+            holder.name.setText(spellName.get(position));
+            holder.description.setText(spellsDescription.get(position));
+
+            holder.cbSelected.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if(((CheckBox)v).isChecked())
+                        spellsCheck[position]=true;
+                    else
+                        spellsCheck[position]=false;
+                }
+            });
+
+            //return the view to be displayed
+            return convertView;
+        }
+
+    }
+

@@ -1,0 +1,245 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.developer.arnold.dungeonbuddy.CharacterView.HomeFragment"
+    android:layout_columnSpan="1"
+    android:layout_column="5">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/imageView3"
+        android:layout_row="0"
+        android:layout_column="0" />
+
+    <TextView
+        android:text="Character Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblCharacterInfoName"
+        android:textSize="30sp" />
+
+    <TextView
+        android:text="0"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblCharacterInfoHealthCurr"
+        android:layout_width="match_parent"
+        android:layout_marginRight="20dp" />
+
+    <TextView
+        android:text="/ 0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblCharacterInfoHealthTotal"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="13dp" />
+
+    <TextView
+        android:text="Health"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblCharacterInfoHealth"
+        android:layout_marginRight="0dp" />
+
+    <Button
+        android:text="Rest"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:id="@+id/btnRest"
+        android:layout_marginLeft="300dp"
+        android:textSize="10sp" />
+
+    <Button
+        android:text="Take damage"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:id="@+id/btnDamage"
+        android:textSize="10sp"
+        android:layout_height="37dp" />
+
+    <Button
+        android:text="Heal"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:id="@+id/btnHeal"
+        android:layout_marginLeft="100dp"
+        android:textSize="10sp" />
+
+    <TextView
+        android:text="Combat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="5"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblCombat"
+        android:layout_marginRight="0dp"
+        android:layout_marginLeft="0dp"
+        android:textSize="30sp" />
+
+    <Button
+        android:text="Temp HP"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginLeft="200dp"
+        android:textSize="10sp"
+        android:id="@+id/btnTempHealth" />
+
+    <TextView
+        android:text="Initiative"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblInitiative"
+        android:layout_marginRight="0dp"
+        android:textSize="12sp" />
+
+    <TextView
+        android:text="Armor Class"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblArmorClass"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12sp" />
+
+    <TextView
+        android:text="Speed"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblSpeed"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="right"
+        android:textSize="12sp" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblInitiativeInt"
+        android:layout_marginRight="0dp" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblArmorClassInt"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblSpeedInt"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="right" />
+
+    <TextView
+        android:text="Pas. Preception"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblPassivePreception"
+        android:layout_marginRight="0dp"
+        android:textSize="12sp" />
+
+    <TextView
+        android:text="Proficiency Bonus"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblProficiency"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12sp" />
+
+    <TextView
+        android:text="Inspiration"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblInspiration"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="right"
+        android:textSize="12sp" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_row="9"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblPassivePreceptionInt"
+        android:layout_marginRight="0dp" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_row="9"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblProficiencyInt"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_row="9"
+        android:layout_column="0"
+        android:textAlignment="center"
+        android:id="@+id/lblInspirationInt"
+        android:layout_marginRight="0dp"
+        android:layout_gravity="right" />
+
+
+</GridLayout>
