@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:weightSum="1">
 
 
     <TextView
@@ -16,7 +16,16 @@
 
     <ExpandableListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lstSpells" />
+        android:layout_height="320dp"
+        android:id="@+id/lstSpells"
+        android:layout_weight="0.85" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Spells"
+        android:id="@+id/addSpell"
+        android:layout_gravity="bottom|center_horizontal"
+        android:enabled="true" />
 
 </LinearLayout>

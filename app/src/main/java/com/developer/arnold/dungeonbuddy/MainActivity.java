@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,10 @@ import android.widget.TextView;
 
 import com.developer.arnold.dungeonbuddy.CharacterCreation.CharacterWorkflow.characterRaceList;
 import com.developer.arnold.dungeonbuddy.CharacterView.characterInfoMainActivity;
+import com.developer.arnold.dungeonbuddy.DataModels.Spell;
 import com.developer.arnold.dungeonbuddy.DataModels.playerCharacter;
 import com.developer.arnold.dungeonbuddy.HelperClasses.MySQLiteHelper;
+import com.orm.SugarContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +44,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SugarContext.init(this);
         MySQLiteHelper db = new MySQLiteHelper(this);
+
+        long count = Spell.count(Spell.class);
+        if(count == 0){
+            addSpells();
+        }
 
         //db.destroyDB(this);
 
@@ -66,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     /**
@@ -77,6 +88,33 @@ public class MainActivity extends AppCompatActivity {
         //creates a intent and starts an activity using that intent.
         Intent intent = new Intent(this, characterRaceList.class);
         startActivity(intent);
+    }
+
+    public void addSpells(){
+        Spell spell1 = new Spell (1, "Acid Splash", "Hurl a bubble of acid");
+        spell1.save();
+        Spell spell2 = new Spell (2, "Aid", "Bolsters your allies with toughness and resolve");
+        spell2.save();
+        Spell spell3 = new Spell (3, "Alarm", "Alerts you whenever a tiny or larger creature touches or enters the warded area");
+        spell3.save();
+        Spell spell4 = new Spell (4, "Animate Dead", "Creates a undead servant");
+        spell4.save();
+        Spell spell5 = new Spell (5, "Animal Friendship", "Lets you convince a beast that you mean it no harm");
+        spell5.save();
+        Spell spell6 = new Spell (6, "Arcane Eye", "Creates an invisible eye within range that hovers in the air");
+        spell6.save();
+        Spell spell7 = new Spell (7, "Bane", "Up to three creatures that you can see must make Charisma saving throws");
+        spell7.save();
+        Spell spell8 = new Spell (8, "Beacon of Hope", "Bestows hope and vitality");
+        spell8.save();
+        Spell spell9 = new Spell (9, "Blindness", "You can blind of deaf a foe");
+        spell9.save();
+        Spell spell10 = new Spell (10, "Blur", "Your body becomes blurred, shifting to all who can see you");
+        spell10.save();
+        Spell spell11 = new Spell (11, "Chain Lightning", "Creates a bolt of lightning that arcs towards a target");
+        spell11.save();
+        Spell spell12 = new Spell (12, "Chromatic Orb", "Hurl a 4-inch-diameter sphere of energy at a creature");
+        spell12.save();
     }
 }
 

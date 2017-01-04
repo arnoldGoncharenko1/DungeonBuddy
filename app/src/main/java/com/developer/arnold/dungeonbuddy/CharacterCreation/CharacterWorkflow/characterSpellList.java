@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.view.ViewGroup;
 
+import com.developer.arnold.dungeonbuddy.DataModels.Spell;
 import com.developer.arnold.dungeonbuddy.DataModels.playerCharacter;
 import com.developer.arnold.dungeonbuddy.R;
 
@@ -38,14 +40,12 @@ public class characterSpellList extends Activity {
         List<String> spellsAvailableList = new ArrayList<String>();
         List<String> spellsDescription = new ArrayList<String>();
 
-        spellsAvailableList.add("Acid Splash");
-        spellsDescription.add("Hurl a bubble of acid");
+        List<Spell> spells = Spell.listAll(Spell.class);
 
-        spellsAvailableList.add("Aid");
-        spellsDescription.add("Bolsters your allies with toughness and resolve");
-
-        spellsAvailableList.add("Alarm");
-        spellsDescription.add("Alerts you whenever a tiny or larger creature touches or enters the warded area");
+        for(int i = 0; i<spells.size(); i++){
+            spellsAvailableList.add(spells.get(i).name);
+            spellsDescription.add(spells.get(i).description);
+        }
 
         listview.setAdapter(new spellListAdapter(this, spellsAvailableList, spellsDescription));
 
@@ -140,7 +140,7 @@ public class characterSpellList extends Activity {
                         }
                     }
                     if(spellsSelected.size() < 1){
-                        createErrorDialog("Error found", "Please choose a spell");
+                        createErrorDialog("Error found", "Please choose a Spell");
                     }
                 }
             });
