@@ -3,13 +3,12 @@
     package="com.developer.arnold.dungeonbuddy">
 
     <application
+        android:name="com.orm.SugarApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="com.orm.SugarApp">
-
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,12 +27,23 @@
         <activity android:name=".CharacterCreation.CharacterWorkflow.characterStats" />
         <activity android:name=".CharacterCreation.CharacterWorkflow.characterProfChoose" />
         <activity android:name=".CharacterCreation.CharacterWorkflow.characterBasicInfoChoose" />
-        <activity android:name=".CharacterCreation.CharacterWorkflow.characterSpellList" />
-        <activity android:name=".CharacterView.characterInfoMainActivity"></activity>
-        <meta-data android:name="DATABASE" android:value="characterInfo.db" />
-        <meta-data android:name="VERSION" android:value="2" />
-        <meta-data android:name="QUERY_LOG" android:value="true" />
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.developer.arnold.dungeonbuddy" />
+        <activity android:name=".CharacterView.characterSpellList" />
+        <activity android:name=".CharacterView.characterInfoMainActivity" />
+
+        <meta-data
+            android:name="DATABASE"
+            android:value="characterInfo.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="3" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.developer.arnold.dungeonbuddy" />
+
+        <activity android:name=".CharacterView.characterWeaponList"></activity>
     </application>
 
 </manifest>

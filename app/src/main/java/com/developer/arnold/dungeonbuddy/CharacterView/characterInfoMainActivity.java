@@ -33,6 +33,19 @@ public class characterInfoMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_character_information);
+
+        Intent intent = getIntent();
+        selectedCharacterID = intent.getIntExtra("ID", 0);
+
+//        if (intent.hasExtra("open_spell")){
+//            Fragment fragment = new SpellsFragment();
+//            Bundle args = new Bundle();
+//            args.putInt("charId", selectedCharacterID);
+//            FragmentManager fragmentManager = getSupportFragmentManager();
+//            fragment.setArguments(args);
+//            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+//        }
+
         mTitle = mDrawerTitle = getTitle();
         mNavigationDrawerItemTitles= getResources().getStringArray(R.array.navigation_drawer_items_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -62,8 +75,6 @@ public class characterInfoMainActivity extends AppCompatActivity {
         setTitle(mNavigationDrawerItemTitles[0]);
 
         MySQLiteHelper db = new MySQLiteHelper(this);
-        Intent intent = getIntent();
-        selectedCharacterID = intent.getIntExtra("ID", 0);
         selectedCharacter = db.getSingleCharacter(selectedCharacterID);
         //selectedCharacter.characterInventory = inventory.find(inventory.class, "charID = ?", String.valueOf(selectedCharacterID)).get(0);
     }
@@ -102,7 +113,10 @@ public class characterInfoMainActivity extends AppCompatActivity {
         }
 
         if (fragment != null) {
+            Bundle args = new Bundle();
+            args.putInt("charId", selectedCharacterID);
             FragmentManager fragmentManager = getSupportFragmentManager();
+            fragment.setArguments(args);
             fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
             mDrawerList.setItemChecked(position, true);

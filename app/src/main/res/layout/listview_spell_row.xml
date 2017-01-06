@@ -11,13 +11,13 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cbSpell" />
+        android:id="@+id/cbSelection" />
 
         <TextView
             android:text="0"
             android:layout_width="145dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spellName"
+            android:id="@+id/lblName"
             android:layout_weight="0.62" />
 
     </LinearLayout>
@@ -26,6 +26,6 @@
         android:text="0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spellDesc" />
+        android:id="@+id/lblDesc" />
 
 </LinearLayout>

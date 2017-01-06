@@ -3,21 +3,19 @@ package com.developer.arnold.dungeonbuddy.DataModels;
 import com.orm.SugarRecord;
 
 /**
- * Created by Arnold on 1/4/2017.
+ * Created by Arnold on 1/5/2017.
  */
 
-public class CharSpell extends SugarRecord {
-
+public class WeaponItem extends SugarRecord{
     public int characterID;
-    public int spellId;
+    public int weaponID;
 
-    public CharSpell(){
-
+    public WeaponItem() {
     }
 
-    public CharSpell(int characterID, int spellId){
+    public WeaponItem(int characterID, int weaponID) {
         this.characterID = characterID;
-        this.spellId = spellId;
+        this.weaponID = weaponID;
     }
 
     public int getCharacterID(){
@@ -28,11 +26,11 @@ public class CharSpell extends SugarRecord {
         this.characterID = characterID;
     }
 
-    public int getSpellId(){
-        return spellId;
+    public int getWeaponId(){
+        return weaponID;
     }
 
-    public void setSpellId(int spellId){
-        this.spellId = spellId;
+    public void setWeaponId(int weaponID){
+        this.weaponID = weaponID;
     }
 }

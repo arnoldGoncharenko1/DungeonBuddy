@@ -162,6 +162,12 @@
 
             </ListView>
 
+            <Button
+                android:text="Add Weapons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAddWeapons" />
+
             <TextView
                 android:text="Items"
                 android:layout_width="match_parent"

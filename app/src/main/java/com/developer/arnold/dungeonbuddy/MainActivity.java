@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.developer.arnold.dungeonbuddy.CharacterCreation.CharacterWorkflow.characterRaceList;
 import com.developer.arnold.dungeonbuddy.CharacterView.characterInfoMainActivity;
 import com.developer.arnold.dungeonbuddy.DataModels.Spell;
+import com.developer.arnold.dungeonbuddy.DataModels.Weapon;
 import com.developer.arnold.dungeonbuddy.DataModels.playerCharacter;
 import com.developer.arnold.dungeonbuddy.HelperClasses.MySQLiteHelper;
 import com.orm.SugarContext;
@@ -50,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
         long count = Spell.count(Spell.class);
         if(count == 0){
             addSpells();
+        }
+
+        long weaponCount = Weapon.count(Weapon.class);
+        if(weaponCount == 0) {
+            addWeapons();
         }
 
         //db.destroyDB(this);
@@ -115,6 +121,21 @@ public class MainActivity extends AppCompatActivity {
         spell11.save();
         Spell spell12 = new Spell (12, "Chromatic Orb", "Hurl a 4-inch-diameter sphere of energy at a creature");
         spell12.save();
+    }
+
+    public void addWeapons(){
+        Weapon weapon1 = new Weapon (1, "1d4 bludgeoning", "1d4 bludgeoning", "Club", "1 sp", 2, "Light", "Common", 0);
+        weapon1.save();
+        Weapon weapon2 = new Weapon (2, "1d4 piercing", "1d4 piercing", "Dagger", "2 gp", 1, "Finesse, light, thrown (range 20/60)", "Common", 0);
+        weapon2.save();
+        Weapon weapon3 = new Weapon (3, "1d8 bludgeoning", "1d8 bludgeoning", "Greatclub", "2 sp", 10, "Two-Handed", "Common", 0);
+        weapon3.save();
+        Weapon weapon4 = new Weapon (4, "1d6 slashing", "1d6 slashing", "Handaxe", "5 gp", 2, "Light, thrown (range 20/60)", "Common", 0);
+        weapon4.save();
+        Weapon weapon5 = new Weapon (5, "1d6 piercing", "1d6 piercing", "Javelin", "5 sp", 2, "thrown (range 30/120)", "Common", 0);
+        weapon5.save();
+        Weapon weapon6 = new Weapon (6, "1d4 bludgeoning", "1d4 bludgeoning", "Light Hammer", "2 gp", 2, "Light, thrown (range 20/60)", "Common", 0);
+        weapon6.save();
     }
 }
 

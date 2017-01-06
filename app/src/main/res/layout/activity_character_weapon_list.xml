@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_character_weapon_list"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.developer.arnold.dungeonbuddy.CharacterView.characterSpellList"
+    tools:context="com.developer.arnold.dungeonbuddy.CharacterView.characterWeaponList"
     android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Choose spells"
-        android:id="@+id/lblSpellChoose"
+        android:text="Choose weapons"
+        android:id="@+id/lblWeaponChoose"
         android:layout_gravity="center_horizontal" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:id="@+id/lstCharacterSpell"
+        android:id="@+id/lstCharacterWeapons"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_weight="1.01" />
