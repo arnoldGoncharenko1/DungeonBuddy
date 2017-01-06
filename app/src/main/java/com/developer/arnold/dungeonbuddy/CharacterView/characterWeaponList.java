@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.developer.arnold.dungeonbuddy.DataModels.CharSpell;
 import com.developer.arnold.dungeonbuddy.DataModels.Spell;
 import com.developer.arnold.dungeonbuddy.DataModels.Weapon;
+import com.developer.arnold.dungeonbuddy.DataModels.WeaponItem;
 import com.developer.arnold.dungeonbuddy.R;
 
 import java.util.ArrayList;
@@ -63,7 +64,6 @@ class weaponListAdapter extends BaseAdapter {
 
 
     public weaponListAdapter(Context context, List<Weapon> weapons, int charId) {
-        // TODO Auto-generated constructor stub
         this.context = context;
         this.weapons = weapons;
 
@@ -139,8 +139,8 @@ class weaponListAdapter extends BaseAdapter {
                 }
 
                 for(int i=0; i<weaponsSelected.size(); i++){
-                    CharSpell charSpell = new CharSpell(charId, weaponsSelected.get(i));
-                    charSpell.save();
+                    WeaponItem weaponItem = new WeaponItem(charId, weaponsSelected.get(i));
+                    weaponItem.save();
                 }
             }
         });
