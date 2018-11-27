@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,19 +19,19 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class characterClassList extends Activity {
+public class characterBackgroundList extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_character_class_list);
+        setContentView(R.layout.activity_character_background_list);
 
-        ListView listview = (ListView) findViewById(R.id.lstCharacterClass);
-        listview.setAdapter(new classListAdapter(this, new String[] { "Barbarian", "Bard" }));
+        ListView listview = (ListView) findViewById(R.id.lstCharacterBackground);
+        listview.setAdapter(new characterListAdapter(this, new String[] { "Acolyte", "Charlatan" }));
     }
 }
 
-class classListAdapter extends BaseAdapter {
+class characterListAdapter extends BaseAdapter {
 
     Context context;
     String[] data;
@@ -41,7 +40,7 @@ class classListAdapter extends BaseAdapter {
     private int mSelectedPosition = -1;
     playerCharacter playerChar = new playerCharacter();
 
-    public classListAdapter(Context context, String[] data) {
+    public characterListAdapter(Context context, String[] data) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.data = data;
@@ -75,7 +74,7 @@ class classListAdapter extends BaseAdapter {
         if (vi == null)
             vi = inflater.inflate(R.layout.list_view_item, null);
 
-        Button btnContinueClass = (Button) parent.getRootView().findViewById(R.id.btnBackgroundContinue);
+        Button btnContinueStats = (Button) parent.getRootView().findViewById(R.id.btnStatsContinue);
         RadioButton className = (RadioButton) vi.findViewById(R.id.radioRace);
         Button btnMoreInfo = (Button) vi.findViewById(R.id.btnMoreRaceInfo);
 
@@ -103,25 +102,25 @@ class classListAdapter extends BaseAdapter {
         btnMoreInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, classInfo.class);
-                intent.putExtra("classExtraInfoNum", position);
+                Intent intent = new Intent(context, backgroundInfo.class);
+                intent.putExtra("backgroundExtraInfoNum", position);
                 context.startActivity(intent);
             }
         });
 
-        btnContinueClass.setOnClickListener(new View.OnClickListener() {
+        btnContinueStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mSelectedPosition != -1) {
-                    playerChar = (playerCharacter)((Activity) context).getIntent().getSerializableExtra("playerCharIntent");
-                    playerChar.characterClass = mSelectedRB.getText().toString();
-                    Intent intent = new Intent(context, characterBackgroundList.class);
-                    intent.putExtra("playerCharIntent", playerChar);
-                    context.startActivity(intent);
-                }
-                else {
-                    createErrorDialog("Error found","Please choose a class!");
-                }
+            if (mSelectedPosition != -1) {
+                playerChar = (playerCharacter)((Activity) context).getIntent().getSerializableExtra("playerCharIntent");
+                playerChar.characterBackground = mSelectedRB.getText().toString();
+                Intent intent = new Intent(context, characterStats.class);
+                intent.putExtra("playerCharIntent", playerChar);
+                context.startActivity(intent);
+            }
+            else {
+                createErrorDialog("Error found","Please choose a class!");
+            }
             }
         });
 

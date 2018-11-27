@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Score             Ability               Mod Save"
+        android:id="@+id/lblStatsInfo"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="-5dp" />
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="455dp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.developer.arnold.dungeonbuddy.characterStats">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="+"
+                android:id="@+id/btnStrPlus"
+                android:layout_column="1"
+                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_marginRight="10dp"
+                android:onClick="scoreStrButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="8"
+                android:id="@+id/lblStrScore"
+                android:layout_column="3"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:id="@+id/btnStrMinus"
+                android:layout_column="5"
+                android:layout_marginLeft="10dp"
+                android:onClick="scoreStrButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblStr"
+                android:layout_column="7"
+                android:text="Strength"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblStrMod"
+                android:layout_column="8"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblStrSave"
+                android:layout_column="9"
+                android:layout_marginLeft="35dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="+"
+                android:id="@+id/btnDexPlus"
+                android:layout_column="1"
+                android:layout_marginRight="10dp"
+                android:layout_width="20dp"
+                android:onClick="scoreDexButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="8"
+                android:id="@+id/lblDexScore"
+                android:layout_column="3"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:id="@+id/btnDexMinus"
+                android:layout_column="5"
+                android:layout_marginLeft="10dp"
+                android:onClick="scoreDexButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblDex"
+                android:layout_column="7"
+                android:text="Dexterity"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblDexMod"
+                android:layout_column="8"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblDexSave"
+                android:layout_column="9"
+                android:layout_marginLeft="35dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="+"
+                android:id="@+id/btnConPlus"
+                android:layout_column="1"
+                android:layout_marginRight="10dp"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:onClick="scoreConButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="8"
+                android:id="@+id/lblConScore"
+                android:layout_column="3"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:id="@+id/btnConMinus"
+                android:layout_column="5"
+                android:layout_marginLeft="10dp"
+                android:onClick="scoreConButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblCon"
+                android:layout_column="7"
+                android:text="Constitution"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblConMod"
+                android:layout_column="8"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblConSave"
+                android:layout_column="9"
+                android:layout_marginLeft="35dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="+"
+                android:id="@+id/btnIntPlus"
+                android:layout_column="1"
+                android:layout_marginRight="10dp"
+                android:layout_width="40dp"
+                android:onClick="scoreIntButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="8"
+                android:id="@+id/lblIntScore"
+                android:layout_column="3"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:id="@+id/btnIntMinus"
+                android:layout_column="5"
+                android:layout_marginLeft="10dp"
+                android:onClick="scoreIntButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblInt"
+                android:layout_column="7"
+                android:text="Intelligence"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblIntMod"
+                android:layout_column="8"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblIntSave"
+                android:layout_column="9"
+                android:layout_marginLeft="35dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="+"
+                android:id="@+id/btnWisPlus"
+                android:layout_column="1"
+                android:layout_marginRight="10dp"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:onClick="scoreWisButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="8"
+                android:id="@+id/lblWisScore"
+                android:layout_column="3"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:id="@+id/btnWisMinus"
+                android:layout_column="5"
+                android:layout_marginLeft="10dp"
+                android:onClick="scoreWisButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblWis"
+                android:layout_column="7"
+                android:text="Wisdom"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblWisMod"
+                android:layout_column="8"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblWisSave"
+                android:layout_column="9"
+                android:layout_marginLeft="35dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="+"
+                android:id="@+id/btnChaPlus"
+                android:layout_column="1"
+                android:layout_marginRight="10dp"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:onClick="scoreChaButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblChaScore"
+                android:layout_column="3"
+                android:layout_marginTop="2dp"
+                android:text="8" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:id="@+id/btnChaMinus"
+                android:layout_column="5"
+                android:layout_marginLeft="10dp"
+                android:onClick="scoreChaButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblCha"
+                android:layout_column="7"
+                android:text="Charisma"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblChaMod"
+                android:layout_column="8"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="-1"
+                android:id="@+id/lblChaSave"
+                android:layout_column="9"
+                android:layout_marginLeft="35dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Total Points:"
+                android:id="@+id/lblTotalPoints"
+                android:layout_column="7" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="27"
+                android:id="@+id/lblTotalPointsNum"
+                android:layout_column="7"
+                android:layout_marginLeft="50dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Points Left:"
+                android:id="@+id/lblPointsLeft"
+                android:layout_column="7" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="27"
+                android:id="@+id/lblPointsLeftNum"
+                android:layout_column="7"
+                android:layout_marginLeft="50dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:id="@+id/btnContinue"
+        android:layout_gravity="center_horizontal"
+        android:enabled="true"
+        android:onClick="continueToProficiencies" />
+
+</LinearLayout>
