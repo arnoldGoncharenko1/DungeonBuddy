@@ -28,7 +28,9 @@
         <activity android:name=".classInfo" />
         <activity android:name=".characterBackgroundList" />
         <activity android:name=".backgroundInfo" />
-        <activity android:name=".characterStats"></activity>
+        <activity android:name=".characterStats" />
+        <activity android:name=".characterProfChoose" />
+        <activity android:name=".characterBasicInfoChoose"></activity>
     </application>
 
 </manifest>

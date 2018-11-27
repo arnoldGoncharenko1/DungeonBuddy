@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app2="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app2:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/imgCharacter"
+        android:layout_weight="0.19" />
+
+    <TextView
+        android:text="Character Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblCharName"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/edtCharName"
+        android:textSize="14sp"
+        android:hint="Enter Character Name Here"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Hit Points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblHitPoints"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblHitPointsNum"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Experience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblExperience"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblExperienceNum"
+        android:textAlignment="center" />
+
+    <Button
+        android:text="Confirm Character"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnConfirm"
+        android:layout_marginTop="0dp"
+        android:onClick="GoBackToStartingScreen" />
+
+</LinearLayout>
+

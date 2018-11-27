@@ -179,13 +179,6 @@ public class characterBackground extends Activity {
             return false;
         }
         else {
-            userCharacter.characterBackground = spinnerBackgroundSaving.getSelectedItem().toString().trim();
-            userCharacter.characterSpecialty = spinnerSpeciality.getSelectedItem().toString().trim();
-            userCharacter.characterTraits[0] = spinnerPersonality1.getSelectedItem().toString().trim();
-            userCharacter.characterTraits[1] = spinnerPersonality2.getSelectedItem().toString().trim();
-            userCharacter.characterIdeal = spinnerIdeal.getSelectedItem().toString().trim();
-            userCharacter.characterBond = spinnerBond.getSelectedItem().toString().trim();
-            userCharacter.characterFlaw = spinnerFlaw.getSelectedItem().toString().trim();
             return true;
         }
     }

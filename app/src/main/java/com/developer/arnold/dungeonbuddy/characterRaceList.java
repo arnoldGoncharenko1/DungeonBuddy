@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.os.Bundle;
@@ -40,6 +41,8 @@ public class characterRaceList extends Activity {
         listview.setAdapter(new raceListAdapter(this, new String[] { "Dwarf", "Human" }));
     }
 }
+
+
 
 class raceListAdapter extends BaseAdapter {
 
@@ -125,9 +128,8 @@ class raceListAdapter extends BaseAdapter {
                     Intent intent = new Intent(context, characterClassList.class);
                     intent.putExtra("playerCharIntent", playerChar);
                     context.startActivity(intent);
-                }
-                else {
-                    createErrorDialog("Error found","Please choose a race!");
+                } else {
+                    createErrorDialog("Error found", "Please choose a race!");
                 }
             }
         });
